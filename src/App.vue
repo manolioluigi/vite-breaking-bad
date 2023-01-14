@@ -3,14 +3,13 @@
     import axios from 'axios';
     import AppHeader from './components/AppHeader.vue';
     import AppMain from './components/AppMain.vue';
-    import CardsList from './components/CardsList.vue';
-    import { store } from './store.js'
-    import * as bootstrap from 'bootstrap';
+    import { store } from './store.js';
+
     
     export default {
         components: {
             AppHeader,
-            AppMain,
+            AppMain
         },
 
         data() {
@@ -38,10 +37,7 @@
   
   <div>
     <AppHeader></AppHeader>
-    <AppMain>
-      <CardsList/>
-    </AppMain>
-    <AppFooter></AppFooter>
+    <AppMain></AppMain>
   </div>
 
 </template>

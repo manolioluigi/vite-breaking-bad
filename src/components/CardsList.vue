@@ -13,9 +13,9 @@
     };
 </script>
 
-<template>
+<template lang="">
   
-    <div>
+    <div class="container-cards">
         <Card v-for="(item, index) in store.cardsList" :key="index" :card="item" />
     </div>
   
@@ -25,6 +25,10 @@
     @use '../styles/partials/variables.scss' as *;
     @use '../styles/partials/mixins.scss' as *;
 
-
+    .container-cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
 </style>
