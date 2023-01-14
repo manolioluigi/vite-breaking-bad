@@ -2,6 +2,7 @@
 
     import CardsList from './CardsList.vue';
     import InfoPanel from './InfoPanel.vue'
+    import SelectArchetype from './SelectArchetype.vue'
     export default {
         name: 'AppMain',
         data() {
@@ -11,7 +12,8 @@
         },
         components: {
             CardsList,
-            InfoPanel
+            InfoPanel,
+            SelectArchetype
         },
     }
 </script>
@@ -24,9 +26,7 @@
 
             <div class="col-12">
 
-                <select name="select" id="select" class="form-select">
-                    <option value="alien">Alien</option>
-                </select>
+                <SelectArchetype></SelectArchetype>
                 
             </div>
 
@@ -74,11 +74,6 @@
         padding: 30px;
         display: flex;
         flex-direction: column;
-    }
-
-    #select{
-        width: 150px;
-        margin: 3vh 11vw;
     }
 
     .info-panel{

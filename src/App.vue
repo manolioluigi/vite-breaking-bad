@@ -20,6 +20,7 @@
 
         created(){
           this.getCards();
+          this.getArchetypes();
         },
 
         methods:{
@@ -27,6 +28,12 @@
             axios.get(store.url).then((response) => {
               store.cardsList = response.data.data
               store.cardsNumber = response.data.data.length;
+            })
+          },
+          getArchetypes(){
+            axios.get(store.archetypesUrl).then((response) => {
+              store.archetypesList = response.data
+              console.log(store.archetypesList)
             })
           }
         }
