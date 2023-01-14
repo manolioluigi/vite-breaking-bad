@@ -1,6 +1,7 @@
 <script>
 
     import CardsList from './CardsList.vue';
+    import InfoPanel from './InfoPanel.vue'
     export default {
         name: 'AppMain',
         data() {
@@ -9,7 +10,8 @@
             }
         },
         components: {
-            CardsList
+            CardsList,
+            InfoPanel
         },
     }
 </script>
@@ -37,7 +39,7 @@
                 <div class="content">
 
                     <div class="info-panel">
-                        <span>Found N cards</span>
+                        <InfoPanel></InfoPanel>
                     </div>
 
                     <div class="cards">

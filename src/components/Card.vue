@@ -10,7 +10,14 @@
     <div class="card text-center">
         <img class="img-fluid" :src="card.card_images[0].image_url" alt="">
         <div class="text">
-            <span>{{ card.name }}</span>
+            <span class="title">{{ card.name }}</span>
+            <div>
+                <div>
+                    <span>{{ card.type }} / </span>
+                    <span>{{ card.race }}</span>
+                </div>
+                <span>Avg. price: {{ card.card_prices[0].cardmarket_price }} $</span>
+            </div>
         </div>
     </div>
 </template>
@@ -32,11 +39,25 @@
         justify-content: space-between;
         align-items: center;
         background-color: $orange;
-        text{
-            height: 100px;
-            span{
+        margin-bottom: 20px;
+        .text{
+            height: 100%;
+            padding: 10px 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .title{
                 color: $white;
+                font-weight: bold;
+                display: block;
+                font-size: 16px;
             }
+            span{
+                font-size: 14px;
+            }
+        }
+        img:hover{
+            transform: scale(1.1);
         }
     }
 

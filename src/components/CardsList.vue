@@ -28,7 +28,8 @@
     .container-cards{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: calc(5% / 4);
     }
 
 </style>

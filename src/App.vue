@@ -26,6 +26,7 @@
           getCards(){
             axios.get(store.url).then((response) => {
               store.cardsList = response.data.data
+              store.cardsNumber = response.data.data.length;
             })
           }
         }
