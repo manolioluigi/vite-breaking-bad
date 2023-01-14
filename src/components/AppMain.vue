@@ -39,7 +39,10 @@
                 <div class="content">
 
                     <div class="info-panel">
-                        <InfoPanel></InfoPanel>
+                        <div>
+                            <InfoPanel></InfoPanel>
+                        </div>
+                        <img src="../assets/img/kuriboh.png" alt="">
                     </div>
 
                     <div class="cards">
@@ -81,6 +84,11 @@
         color: $white;
         padding: 15px;
         text-align: left;
+        display: flex;
+        justify-content: space-between;
+        img{
+            max-height: 30px;
+        }
     }
 
 

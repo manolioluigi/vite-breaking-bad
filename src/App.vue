@@ -33,10 +33,10 @@
           getArchetypes(){
             axios.get(store.archetypesUrl).then((response) => {
               store.archetypesList = response.data
-              console.log(store.archetypesList)
             })
           }
         }
+
     }
 
 </script>
