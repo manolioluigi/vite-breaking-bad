@@ -1,14 +1,34 @@
 <script>
-
-    import AppHeader from './components/AppHeader.vue'
-    import AppMain from './components/AppMain.vue'
-    import AppFooter from './components/AppFooter.vue'
-
-    export default{
+    
+    import axios from 'axios';
+    import AppHeader from './components/AppHeader.vue';
+    import AppMain from './components/AppMain.vue';
+    import CardsList from './components/CardsList.vue';
+    import { store } from './store.js'
+    import * as bootstrap from 'bootstrap';
+    
+    export default {
         components: {
             AppHeader,
             AppMain,
-            AppFooter
+        },
+
+        data() {
+          return {
+              store
+          }
+        },
+
+        created(){
+          this.getCards();
+        },
+
+        methods:{
+          getCards(){
+            axios.get(store.url).then((response) => {
+              store.cardsList = response.data.data
+            })
+          }
         }
     }
 
@@ -18,7 +38,9 @@
   
   <div>
     <AppHeader></AppHeader>
-    <AppMain></AppMain>
+    <AppMain>
+      <CardsList/>
+    </AppMain>
     <AppFooter></AppFooter>
   </div>
 
@@ -26,5 +48,7 @@
 
 <style lang="scss">
   @use './styles/generals.scss' as *;
+
+
 </style>
 
