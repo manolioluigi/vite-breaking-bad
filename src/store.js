@@ -6,7 +6,6 @@ export const store = reactive({
     cardsList: [],
     archetypesList: [],
     cardsNumber: null,
-    currentArchetype: 'Alien',
     isLoaded: false
 });
 

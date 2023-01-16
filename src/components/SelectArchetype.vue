@@ -1,35 +1,21 @@
 <script>
-    import axios from 'axios';
     import { store } from '../store.js';
 
     export default {
         data() {
             return {
-                store
+                store,
+                selectValue: ''
             }
         },
-        methods: {
-            getCurrentArchetype(){
-                store.currentArchetype = document.getElementById('archetype').value
-                store.url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype='+store.currentArchetype
-                console.log(store.url)
-                this.getCards();
-            },
-            getCards(){
-                axios.get(store.url).then((response) => {
-                store.cardsList = response.data.data
-                store.cardsNumber = response.data.data.length;
-                })
-            },
-        }
     }
 </script>
 
 <template>
   
-    <select name="archetype" id="archetype">
+    <select name="archetype" id="archetype" v-model="selectValue" @change="$emit('selection', selectValue)">
         <option value="" selected disabled hidden>Scegli l'archetipo</option>
-        <option v-for="(item, index) in store.archetypesList" :key="index" :value="archetype_name" @click="getCurrentArchetype()">{{ item.archetype_name }}</option>
+        <option v-for="(item, index) in store.archetypesList" :key="index" :value="archetype_name">{{ item.archetype_name }}</option>
     </select>
 
 </template>

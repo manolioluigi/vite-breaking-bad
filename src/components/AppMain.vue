@@ -1,8 +1,9 @@
 <script>
-
+    import axios from 'axios';
     import CardsList from './CardsList.vue';
     import InfoPanel from './InfoPanel.vue'
     import SelectArchetype from './SelectArchetype.vue'
+    import { store } from '../store.js';
     export default {
         name: 'AppMain',
         data() {
@@ -15,6 +16,19 @@
             InfoPanel,
             SelectArchetype
         },
+        methods: {
+            getCurrentArchetype(selectValue){
+                store.url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype='+selectValue
+                console.log(selectValue)
+                this.getCards();
+            },
+            getCards(){
+                axios.get(store.url).then((response) => {
+                store.cardsList = response.data.data
+                store.cardsNumber = response.data.data.length;
+                })
+            }
+        }
     }
 </script>
 
@@ -26,7 +40,7 @@
 
             <div class="col-12">
 
-                <SelectArchetype></SelectArchetype>
+                <SelectArchetype @selection="getCurrentArchetype"></SelectArchetype>
                 
             </div>
 
