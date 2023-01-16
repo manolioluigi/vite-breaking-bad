@@ -3,13 +3,16 @@
     import axios from 'axios';
     import AppHeader from './components/AppHeader.vue';
     import AppMain from './components/AppMain.vue';
+    import AppLoader from './components/AppLoader.vue';
     import { store } from './store.js';
+    
 
     
     export default {
         components: {
             AppHeader,
-            AppMain
+            AppMain,
+            AppLoader
         },
 
         data() {
@@ -19,8 +22,10 @@
         },
 
         created(){
+          
           this.getCards();
           this.getArchetypes();
+          this.sortArray();
         },
 
         methods:{
@@ -28,14 +33,19 @@
             axios.get(store.url).then((response) => {
               store.cardsList = response.data.data
               store.cardsNumber = response.data.data.length;
+              store.isLoaded = true;
             })
           },
           getArchetypes(){
             axios.get(store.archetypesUrl).then((response) => {
               store.archetypesList = response.data
             })
+          },
+          sortArray(){
+            store.archetypesList.sort();
           }
         }
+        
 
     }
 
@@ -43,9 +53,13 @@
 
 <template>
   
-  <div>
-    <AppHeader></AppHeader>
+  
+  <AppHeader></AppHeader>
+  <div v-if="store.isLoaded">
     <AppMain></AppMain>
+  </div>
+  <div v-else>
+    <AppLoader></AppLoader>
   </div>
 
 </template>
