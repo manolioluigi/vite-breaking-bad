@@ -42,7 +42,18 @@
             })
           },
           sortArray(){
-            store.archetypesList.sort();
+            store.archetypesList.sort((a, b) => {
+            const nameA = a.archetype_name.toUpperCase();
+            const nameB = b.archetype_name.toUpperCase();
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+            });
+
           }
         }
         
