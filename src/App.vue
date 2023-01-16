@@ -25,7 +25,6 @@
           
           this.getCards();
           this.getArchetypes();
-          this.sortArray();
         },
 
         methods:{
@@ -38,11 +37,7 @@
           },
           getArchetypes(){
             axios.get(store.archetypesUrl).then((response) => {
-              store.archetypesList = response.data
-            })
-          },
-          sortArray(){
-            store.archetypesList.sort((a, b) => {
+            response.data.sort((a, b) => {
             const nameA = a.archetype_name.toUpperCase();
             const nameB = b.archetype_name.toUpperCase();
             if (nameA < nameB) {
@@ -52,9 +47,11 @@
               return 1;
             }
             return 0;
+            })
+            store.archetypesList = response.data
             });
-
-          }
+           
+          },
         }
         
 
