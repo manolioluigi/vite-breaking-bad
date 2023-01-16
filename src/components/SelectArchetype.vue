@@ -15,7 +15,7 @@
   
     <select name="archetype" id="archetype" v-model="selectValue" @change="$emit('selection', selectValue)">
         <option value="" selected disabled hidden>Scegli l'archetipo</option>
-        <option v-for="(item, index) in store.archetypesList" :key="index" :value="archetype_name">{{ item.archetype_name }}</option>
+        <option v-for="(item, index) in store.archetypesList" :key="index" :value="item.archetype_name">{{ item.archetype_name }}</option>
     </select>
 
 </template>
