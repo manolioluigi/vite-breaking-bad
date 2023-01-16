@@ -20,6 +20,7 @@
             getCurrentArchetype(selectValue){
                 store.url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype='+selectValue
                 console.log(selectValue)
+                store.archetypeName = selectValue
                 this.getCards();
             },
             getCards(){

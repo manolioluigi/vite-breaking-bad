@@ -13,7 +13,7 @@
 
 <template>
   
-  <span class="title">{{ store.currentArchetype }}</span>
+  <span class="title">{{ store.archetypeName }}</span>
   <span class="mx-2">archetype contains {{ store.cardsNumber }} cards</span>
 
 </template>
